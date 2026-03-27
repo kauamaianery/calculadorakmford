@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Desafio Ford</title>
+</head>
+<body>
+
+<h1>Desafio Ford</h1>
+
+<script>
+
+  
+  function escrever(texto) {
+    document.write(texto);
+    quebrarLinha();
+  }
+
+  
+  function quebrarLinha() {
+    document.write("<br>");
+  }
+
+  
+  var distancia_Percorrida = parseFloat(
+    prompt("Digite a distância da sua casa até o trabalho (km):")
+  );
+
+  
+  var consumo_Medio = parseFloat(
+    prompt("Digite o consumo médio do veículo (km/l):")
+  );
+
+  
+  var consumo_Necessario_Litros = distancia_Percorrida / consumo_Medio;
+
+  
+  escrever("O consumo necessário é " + consumo_Necessario_Litros.toFixed(2) + " litros");
+
+  quebrarLinha();
+
+  
+  var quantidade_Postos_Pesquisados = parseInt(
+    prompt("Digite a quantidade de postos pesquisados:")
+  );
+
+  var soma_total_Valores_Pesquisados = 0;
+  var menor_Valor_Pesquisado = Infinity;
+
+  
+  for (var i = 1; i <= quantidade_Postos_Pesquisados; i++) {
+
+    var valor = parseFloat(
+      prompt("Digite o valor do combustível no posto " + i + ":")
+    );
+
+    
+    soma_total_Valores_Pesquisados += valor;
+
+    
+    if (valor < menor_Valor_Pesquisado) {
+      menor_Valor_Pesquisado = valor;
+    }
+  }
+
+  
+  var media = soma_total_Valores_Pesquisados / quantidade_Postos_Pesquisados;
+
+  escrever("A média dos preços é: R$ " + media.toFixed(2));
+
+  
+  escrever("O menor preço encontrado é: R$ " + menor_Valor_Pesquisado.toFixed(2));
+
+  quebrarLinha();
+
+  
+  var gasto_Diario = 2 * (consumo_Necessario_Litros * menor_Valor_Pesquisado);
+
+  escrever("O gasto diário com combustível é: R$ " + gasto_Diario.toFixed(2));
+
+</script>
+
+</body>
+</html>
